@@ -6,5 +6,6 @@ target 'BookPlace' do
   use_frameworks!
 
   # Pods for BookPlace
+  pod 'GoogleSignIn'
 
 end
