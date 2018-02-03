@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		41A7497E97A4C242CDF34369 /* Pods_BookPlace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E57C57927A7640410D132030 /* Pods_BookPlace.framework */; };
+		78DC104E20266B6300187398 /* BookPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DC104D20266B6300187398 /* BookPlaceViewController.swift */; };
 		78E607E02026195C00E2A6B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E607DF2026195C00E2A6B8 /* AppDelegate.swift */; };
 		78E607E22026195C00E2A6B8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E607E12026195C00E2A6B8 /* LoginViewController.swift */; };
 		78E607E52026195C00E2A6B8 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78E607E32026195C00E2A6B8 /* Login.storyboard */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		3F86565CE480CAF8B08640EF /* Pods-BookPlace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookPlace.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookPlace/Pods-BookPlace.release.xcconfig"; sourceTree = "<group>"; };
+		78DC104D20266B6300187398 /* BookPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPlaceViewController.swift; sourceTree = "<group>"; };
 		78E607DC2026195C00E2A6B8 /* BookPlace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookPlace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78E607DF2026195C00E2A6B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78E607E12026195C00E2A6B8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				78E607E12026195C00E2A6B8 /* LoginViewController.swift */,
 				78E607E32026195C00E2A6B8 /* Login.storyboard */,
 				78E607F62026633700E2A6B8 /* Main.storyboard */,
+				78DC104D20266B6300187398 /* BookPlaceViewController.swift */,
 				78E607F82026658600E2A6B8 /* AccountViewController.swift */,
 				78E607E92026195D00E2A6B8 /* Assets.xcassets */,
 				78E607EB2026195D00E2A6B8 /* LaunchScreen.storyboard */,
@@ -235,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				78E607E22026195C00E2A6B8 /* LoginViewController.swift in Sources */,
+				78DC104E20266B6300187398 /* BookPlaceViewController.swift in Sources */,
 				78E607E82026195D00E2A6B8 /* BookPlace.xcdatamodeld in Sources */,
 				78E607F92026658600E2A6B8 /* AccountViewController.swift in Sources */,
 				78E607E02026195C00E2A6B8 /* AppDelegate.swift in Sources */,

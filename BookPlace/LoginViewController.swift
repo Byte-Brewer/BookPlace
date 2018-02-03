@@ -27,6 +27,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         print("Google")
         if GIDSignIn.sharedInstance().hasAuthInKeychain() {
             print("Yes", GIDSignIn.sharedInstance().clientID)
+            if let bookPlaceVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "bookPlaceSB") as? BookPlaceViewController {
+            self.present(bookPlaceVC, animated: true, completion: nil)
+            }
         } else {
             print("No")
         }

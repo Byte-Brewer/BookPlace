@@ -59,6 +59,9 @@
                                 <state key="normal" title="Log out">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="logOutAction:" destination="AKe-gp-QFe" eventType="touchUpInside" id="qgX-Jb-FMg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -75,10 +78,10 @@
             </objects>
             <point key="canvasLocation" x="372" y="799"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Book Place View Controller-->
         <scene sceneID="m0J-lq-JhS">
             <objects>
-                <tabBarController id="JkL-t2-Z5p" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="bookPlaceSB" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JkL-t2-Z5p" customClass="BookPlaceViewController" customModule="BookPlace" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UvV-bP-Lon">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 class AccountViewController: UIViewController {
 
@@ -15,4 +16,11 @@ class AccountViewController: UIViewController {
 
     }
 
+    @IBAction func logOutAction(_ sender: UIButton) {
+        if let loginVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "loginVC") as? LoginViewController {
+            GIDSignIn.sharedInstance().signOut()
+            print("Exit")
+            self.present(loginVC, animated: true, completion: nil)
+        }
+    }
 }
