@@ -20,6 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().clientID = "180801512804-iafjhfq4255ru42227fcfb6acd8a20a2.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
         
+        if GIDSignIn.sharedInstance().hasAuthInKeychain() {
+           let bookPlaceVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "bookPlaceSB") as? BookPlaceViewController
+            self.window?.rootViewController = bookPlaceVC
+        }
+        
         return true
     }
 
@@ -46,6 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }
+    
 
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
               withError error: Error!) {

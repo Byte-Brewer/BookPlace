@@ -20,15 +20,18 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
 
     @IBAction func faceBookLoginButton(_ sender: UIButton) {
         print("FaceBook")
-        GIDSignIn.sharedInstance().signOut()
     }
 
     @IBAction func googleLoginButton(_ sender: UIButton) {
         print("Google")
+        oAuthGoogle.sendActions(for: .touchUpInside)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         if GIDSignIn.sharedInstance().hasAuthInKeychain() {
             print("Yes", GIDSignIn.sharedInstance().clientID)
             if let bookPlaceVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "bookPlaceSB") as? BookPlaceViewController {
-            self.present(bookPlaceVC, animated: true, completion: nil)
+                self.present(bookPlaceVC, animated: true, completion: nil)
             }
         } else {
             print("No")
