@@ -16,7 +16,6 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         imageViewContainer.layer.cornerRadius = self.view.frame.size.width / 4

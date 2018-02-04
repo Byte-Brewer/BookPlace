@@ -8,7 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		41A7497E97A4C242CDF34369 /* Pods_BookPlace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E57C57927A7640410D132030 /* Pods_BookPlace.framework */; };
-		78DC104E20266B6300187398 /* BookPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DC104D20266B6300187398 /* BookPlaceViewController.swift */; };
+		783D192820270BF000C24E60 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783D192720270BF000C24E60 /* SearchViewController.swift */; };
+		783D192A20270C5800C24E60 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783D192920270C5800C24E60 /* DetailsViewController.swift */; };
+		783D192C20270CB400C24E60 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783D192B20270CB400C24E60 /* BasketViewController.swift */; };
+		783D192E20270CE300C24E60 /* BasketDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783D192D20270CE300C24E60 /* BasketDetailViewController.swift */; };
+		783D193420270DEA00C24E60 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783D193320270DEA00C24E60 /* CoreDataManager.swift */; };
+		78DC104E20266B6300187398 /* BookPlaceTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DC104D20266B6300187398 /* BookPlaceTBC.swift */; };
 		78E607E02026195C00E2A6B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E607DF2026195C00E2A6B8 /* AppDelegate.swift */; };
 		78E607E22026195C00E2A6B8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E607E12026195C00E2A6B8 /* LoginViewController.swift */; };
 		78E607E52026195C00E2A6B8 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78E607E32026195C00E2A6B8 /* Login.storyboard */; };
@@ -21,7 +26,12 @@
 
 /* Begin PBXFileReference section */
 		3F86565CE480CAF8B08640EF /* Pods-BookPlace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookPlace.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookPlace/Pods-BookPlace.release.xcconfig"; sourceTree = "<group>"; };
-		78DC104D20266B6300187398 /* BookPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPlaceViewController.swift; sourceTree = "<group>"; };
+		783D192720270BF000C24E60 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		783D192920270C5800C24E60 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		783D192B20270CB400C24E60 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
+		783D192D20270CE300C24E60 /* BasketDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketDetailViewController.swift; sourceTree = "<group>"; };
+		783D193320270DEA00C24E60 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		78DC104D20266B6300187398 /* BookPlaceTBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPlaceTBC.swift; sourceTree = "<group>"; };
 		78E607DC2026195C00E2A6B8 /* BookPlace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookPlace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78E607DF2026195C00E2A6B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78E607E12026195C00E2A6B8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +58,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		783D1924202705AA00C24E60 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				78E607DF2026195C00E2A6B8 /* AppDelegate.swift */,
+				78E607E92026195D00E2A6B8 /* Assets.xcassets */,
+				78E607EB2026195D00E2A6B8 /* LaunchScreen.storyboard */,
+				78E607EE2026195D00E2A6B8 /* Info.plist */,
+				78E607E62026195D00E2A6B8 /* BookPlace.xcdatamodeld */,
+				783D193320270DEA00C24E60 /* CoreDataManager.swift */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		783D1925202705E400C24E60 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				78E607E12026195C00E2A6B8 /* LoginViewController.swift */,
+				78E607E32026195C00E2A6B8 /* Login.storyboard */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		783D1926202706B600C24E60 /* MainViews */ = {
+			isa = PBXGroup;
+			children = (
+				78E607F62026633700E2A6B8 /* Main.storyboard */,
+				78DC104D20266B6300187398 /* BookPlaceTBC.swift */,
+				783D192F20270D0200C24E60 /* SearchViews */,
+				783D193020270D2100C24E60 /* BasketViews */,
+				78E607F82026658600E2A6B8 /* AccountViewController.swift */,
+			);
+			path = MainViews;
+			sourceTree = "<group>";
+		};
+		783D192F20270D0200C24E60 /* SearchViews */ = {
+			isa = PBXGroup;
+			children = (
+				783D192720270BF000C24E60 /* SearchViewController.swift */,
+				783D192920270C5800C24E60 /* DetailsViewController.swift */,
+			);
+			path = SearchViews;
+			sourceTree = "<group>";
+		};
+		783D193020270D2100C24E60 /* BasketViews */ = {
+			isa = PBXGroup;
+			children = (
+				783D192B20270CB400C24E60 /* BasketViewController.swift */,
+				783D192D20270CE300C24E60 /* BasketDetailViewController.swift */,
+			);
+			path = BasketViews;
+			sourceTree = "<group>";
+		};
 		78E607D32026195C00E2A6B8 = {
 			isa = PBXGroup;
 			children = (
@@ -69,16 +131,9 @@
 		78E607DE2026195C00E2A6B8 /* BookPlace */ = {
 			isa = PBXGroup;
 			children = (
-				78E607DF2026195C00E2A6B8 /* AppDelegate.swift */,
-				78E607E12026195C00E2A6B8 /* LoginViewController.swift */,
-				78E607E32026195C00E2A6B8 /* Login.storyboard */,
-				78E607F62026633700E2A6B8 /* Main.storyboard */,
-				78DC104D20266B6300187398 /* BookPlaceViewController.swift */,
-				78E607F82026658600E2A6B8 /* AccountViewController.swift */,
-				78E607E92026195D00E2A6B8 /* Assets.xcassets */,
-				78E607EB2026195D00E2A6B8 /* LaunchScreen.storyboard */,
-				78E607EE2026195D00E2A6B8 /* Info.plist */,
-				78E607E62026195D00E2A6B8 /* BookPlace.xcdatamodeld */,
+				783D1925202705E400C24E60 /* LoginView */,
+				783D1926202706B600C24E60 /* MainViews */,
+				783D1924202705AA00C24E60 /* Support Files */,
 			);
 			path = BookPlace;
 			sourceTree = "<group>";
@@ -239,10 +294,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				783D192820270BF000C24E60 /* SearchViewController.swift in Sources */,
 				78E607E22026195C00E2A6B8 /* LoginViewController.swift in Sources */,
-				78DC104E20266B6300187398 /* BookPlaceViewController.swift in Sources */,
+				78DC104E20266B6300187398 /* BookPlaceTBC.swift in Sources */,
 				78E607E82026195D00E2A6B8 /* BookPlace.xcdatamodeld in Sources */,
+				783D192E20270CE300C24E60 /* BasketDetailViewController.swift in Sources */,
+				783D192A20270C5800C24E60 /* DetailsViewController.swift in Sources */,
 				78E607F92026658600E2A6B8 /* AccountViewController.swift in Sources */,
+				783D192C20270CB400C24E60 /* BasketViewController.swift in Sources */,
+				783D193420270DEA00C24E60 /* CoreDataManager.swift in Sources */,
 				78E607E02026195C00E2A6B8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,7 +443,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YB2776JFYB;
-				INFOPLIST_FILE = BookPlace/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/BookPlace/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.NazarSoft.BookPlace;
@@ -400,7 +460,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YB2776JFYB;
-				INFOPLIST_FILE = BookPlace/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/BookPlace/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.NazarSoft.BookPlace;
