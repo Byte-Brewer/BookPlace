@@ -7,5 +7,6 @@ target 'BookPlace' do
 
   # Pods for BookPlace
   pod 'GoogleSignIn'
+  pod 'Kingfisher', '~> 4.6'
 
 end

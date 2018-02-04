@@ -70,6 +70,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             let givenName = user.profile.givenName
             let familyName = user.profile.familyName
             let email = user.profile.email
+            
+            print("user ID: ", userId, "givenNAme: ", givenName,"Email: ", email, idToken, familyName)
             // [START_EXCLUDE]
             NotificationCenter.default.post(
                 name: Notification.Name(rawValue: "ToggleAuthUINotification"),
