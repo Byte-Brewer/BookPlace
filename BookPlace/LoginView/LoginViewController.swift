@@ -8,9 +8,11 @@
 
 import UIKit
 import GoogleSignIn
+import CoreData
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     
+    let context = CoreDataManager.instance.persistentContainer.viewContext
     @IBOutlet weak var oAuthGoogle: GIDSignInButton!
     
     override func viewDidLoad() {
@@ -29,6 +31,10 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        login()
+    }
+    
+    func login() {
         if GIDSignIn.sharedInstance().hasAuthInKeychain() {
             print("Yes", GIDSignIn.sharedInstance().clientID)
             if let bookPlaceVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "bookPlaceSB") as? BookPlaceTBC {
@@ -38,14 +44,11 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
             print("No")
         }
     }
+    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         print("tut")
         if let error = error {
             print("\(error.localizedDescription)")
-            // [START_EXCLUDE silent]
-            NotificationCenter.default.post(
-                name: Notification.Name(rawValue: "ToggleAuthUINotification"), object: nil, userInfo: nil)
-            // [END_EXCLUDE]
         } else {
             // Perform any operations on signed in user here.
             let userId = user.userID                  // For client-side use only!
@@ -55,24 +58,25 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
             let familyName = user.profile.familyName
             let email = user.profile.email
             
-            print("user ID: ", userId, "givenNAme: ", givenName,"Email: ", email, idToken, familyName)
-            // [START_EXCLUDE]
-            NotificationCenter.default.post(
-                name: Notification.Name(rawValue: "ToggleAuthUINotification"),
-                object: nil,
-                userInfo: ["statusText": "Signed in user:\n\(fullName)"])
-            // [END_EXCLUDE]
+            let entity = NSEntityDescription.entity(forEntityName: "User", in: context)
+            let newUser = NSManagedObject(entity: entity!, insertInto: context)
+            if let avatarURL = GIDSignIn.sharedInstance().currentUser.profile.imageURL(withDimension: 100) {
+                print("URL: ", avatarURL.absoluteString)
+                newUser.setValue(avatarURL.absoluteString, forKey: "avatarURL")
+            }
+            
+            newUser.setValue(fullName, forKey: "name")
+            newUser.setValue(email, forKey: "email")
+            
+            do {
+                try context.save()
+            } catch {
+                print("Failed saving")
+            }
         }
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        print("and tut")
-        // Perform any operations when the user disconnects from app here.
-        // [START_EXCLUDE]
-        NotificationCenter.default.post(
-            name: Notification.Name(rawValue: "ToggleAuthUINotification"),
-            object: nil,
-            userInfo: ["statusText": "User has disconnected."])
-        // [END_EXCLUDE]
+        print("end tut")
     }
 }
