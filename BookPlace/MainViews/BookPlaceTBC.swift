@@ -7,10 +7,29 @@
 //
 
 import UIKit
+import CoreData
 
 class BookPlaceTBC: UITabBarController {
+    
+    @IBOutlet weak var bookTabBar: UITabBar!
+    
+    let context = CoreDataManager.instance.persistentContainer.viewContext
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        refreshCartCount()
+    }
+    
+    func refreshCartCount() {
+        var booksCount = 0
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Cart")
+        request.returnsObjectsAsFaults = false
+        do {
+            let result = try context.fetch(request) as! [Cart]
+            booksCount = result.count
+        } catch {
+            print("Failed")
+        }
+        bookTabBar.items![1].badgeValue = String(booksCount)
     }
 }

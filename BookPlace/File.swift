@@ -53,19 +53,19 @@ struct BooksPesponse: Decodable {
 }
 struct Item: Decodable {
     let kind: String?
-    let id: String?
+    let id: String
     let etag: String?
     let selfLink: String?
-    let volumeInfo: VolumInfo?
+    let volumeInfo: VolumInfo
 }
 struct VolumInfo: Decodable {
     let title: String
     let subtitle: String?
-    let authors: [String]?
+    let authors: [String]
     let publisher: String?
     let publishedDate: String?
     let description: String?
-    let imageLinks: ImageLinks?
+    let imageLinks: ImageLinks
 }
 struct ImageLinks: Decodable {
     let smallThumbnail: String?

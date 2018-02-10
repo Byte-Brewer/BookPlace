@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
 class BasketViewController: UIViewController {
+    
+    
+    let context = CoreDataManager.instance.persistentContainer.viewContext
+    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Cart")
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
