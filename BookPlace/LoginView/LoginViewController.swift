@@ -9,6 +9,7 @@
 import UIKit
 import GoogleSignIn
 import CoreData
+import Alamofire
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     
@@ -35,6 +36,13 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
     }
     
     func login() {
+        guard (NetworkReachabilityManager()?.isReachable)! else {
+            let alert = UIAlertController(title: "Error", message: "Inretnet is avalible", preferredStyle: UIAlertControllerStyle.alert)
+            let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
         if GIDSignIn.sharedInstance().hasAuthInKeychain() {
             print("Yes", GIDSignIn.sharedInstance().clientID)
             if let bookPlaceVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "bookPlaceSB") as? BookPlaceTBC {

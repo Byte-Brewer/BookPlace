@@ -31,4 +31,15 @@ class SearchCell: UITableViewCell {
             self.imageBook.kf.setImage(with: URL(string: urlView))
         }
     }
+    
+    func setup(cart info: Cart) {
+        self.titleLabel.text = info.title
+        self.authorLabel.text = info.author ?? "Announ author"
+        if let image = UIImage.init(data: info.image!)  {
+            print("My picture: ")
+            self.imageBook.image = image
+        } else {
+            self.imageBook.image = UIImage.init(named: "bookPlaceHolder")
+        }
+    }
 }
