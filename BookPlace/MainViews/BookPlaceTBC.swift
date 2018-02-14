@@ -13,8 +13,6 @@ class BookPlaceTBC: UITabBarController {
     
     @IBOutlet weak var bookTabBar: UITabBar!
     
-    let context = CoreDataManager.instance.persistentContainer.viewContext
-
     override func viewDidLoad() {
         super.viewDidLoad()
         refreshCartCount()
@@ -22,6 +20,7 @@ class BookPlaceTBC: UITabBarController {
     
     func refreshCartCount() {
         var booksCount = 0
+        let context = CoreDataManager.instance.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Cart")
         request.returnsObjectsAsFaults = false
         do {

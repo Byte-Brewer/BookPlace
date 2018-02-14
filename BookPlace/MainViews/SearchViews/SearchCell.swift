@@ -25,18 +25,18 @@ class SearchCell: UITableViewCell {
     
     func setup(volumInfo info: VolumInfo) {
         self.titleLabel.text = info.title
-        self.authorLabel.text = info.authors.first ?? "Announ author"
-        if let urlView = info.imageLinks.smallThumbnail {
-            print("My URL: ", urlView)
+        self.authorLabel.text = info.authors?.first ?? "Without author"
+        if let urlView = info.imageLinks?.smallThumbnail {
             self.imageBook.kf.setImage(with: URL(string: urlView))
+        } else {
+            imageBook.image = UIImage.init(named: "bookPlaceHolder")
         }
     }
     
     func setup(cart info: Cart) {
         self.titleLabel.text = info.title
-        self.authorLabel.text = info.author ?? "Announ author"
+        self.authorLabel.text = info.author ?? "Without author"
         if let image = UIImage.init(data: info.image!)  {
-            print("My picture: ")
             self.imageBook.image = image
         } else {
             self.imageBook.image = UIImage.init(named: "bookPlaceHolder")

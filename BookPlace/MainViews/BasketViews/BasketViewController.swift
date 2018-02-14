@@ -22,9 +22,14 @@ class BasketViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       getBooksFromCoreData()
+        getBooksFromCoreData()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getBooksFromCoreData()
+        tableView.reloadData() 
+    }
+        
     private func getBooksFromCoreData() {
         let context = CoreDataManager.instance.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Cart")
@@ -41,7 +46,7 @@ class BasketViewController: UIViewController {
 
 extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return self.books.count
+        return self.books.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,9 +58,8 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-//        let detailsVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "detailVC") as! DetailsViewController
-//        detailsVC.book = books[indexPath.row]
-//        self.navigationController?.pushViewController(detailsVC, animated: true)
+        let detailsVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BasketDVC") as! BasketDetailViewController
+        detailsVC.bookFromCart = books[indexPath.row]
+        self.navigationController?.pushViewController(detailsVC, animated: true)
     }
-    
 }

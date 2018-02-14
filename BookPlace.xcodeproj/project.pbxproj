@@ -9,11 +9,10 @@
 /* Begin PBXBuildFile section */
 		41A7497E97A4C242CDF34369 /* Pods_BookPlace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E57C57927A7640410D132030 /* Pods_BookPlace.framework */; };
 		783D192820270BF000C24E60 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783D192720270BF000C24E60 /* SearchViewController.swift */; };
-		783D192A20270C5800C24E60 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783D192920270C5800C24E60 /* DetailsViewController.swift */; };
 		783D192C20270CB400C24E60 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783D192B20270CB400C24E60 /* BasketViewController.swift */; };
 		783D192E20270CE300C24E60 /* BasketDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783D192D20270CE300C24E60 /* BasketDetailViewController.swift */; };
 		783D193420270DEA00C24E60 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783D193320270DEA00C24E60 /* CoreDataManager.swift */; };
-		78A727FE202A50DF00E38EF0 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A727FD202A50DF00E38EF0 /* File.swift */; };
+		78A727FE202A50DF00E38EF0 /* RestAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A727FD202A50DF00E38EF0 /* RestAPIManager.swift */; };
 		78A72802202F44C600E38EF0 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A72801202F44C600E38EF0 /* SearchCell.swift */; };
 		78DC104E20266B6300187398 /* BookPlaceTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DC104D20266B6300187398 /* BookPlaceTBC.swift */; };
 		78E607E02026195C00E2A6B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E607DF2026195C00E2A6B8 /* AppDelegate.swift */; };
@@ -29,12 +28,11 @@
 /* Begin PBXFileReference section */
 		3F86565CE480CAF8B08640EF /* Pods-BookPlace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookPlace.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookPlace/Pods-BookPlace.release.xcconfig"; sourceTree = "<group>"; };
 		783D192720270BF000C24E60 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		783D192920270C5800C24E60 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		783D192B20270CB400C24E60 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 		783D192D20270CE300C24E60 /* BasketDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketDetailViewController.swift; sourceTree = "<group>"; };
 		783D193320270DEA00C24E60 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		789BB5172027839A009C276B /* BookPlace 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "BookPlace 2.xcdatamodel"; sourceTree = "<group>"; };
-		78A727FD202A50DF00E38EF0 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		78A727FD202A50DF00E38EF0 /* RestAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAPIManager.swift; sourceTree = "<group>"; };
 		78A72801202F44C600E38EF0 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		78DC104D20266B6300187398 /* BookPlaceTBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPlaceTBC.swift; sourceTree = "<group>"; };
 		78E607DC2026195C00E2A6B8 /* BookPlace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookPlace.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,7 +99,6 @@
 			children = (
 				783D192720270BF000C24E60 /* SearchViewController.swift */,
 				78A72801202F44C600E38EF0 /* SearchCell.swift */,
-				783D192920270C5800C24E60 /* DetailsViewController.swift */,
 			);
 			path = SearchViews;
 			sourceTree = "<group>";
@@ -149,7 +146,7 @@
 				783D1925202705E400C24E60 /* LoginView */,
 				783D1926202706B600C24E60 /* MainViews */,
 				783D1924202705AA00C24E60 /* Support Files */,
-				78A727FD202A50DF00E38EF0 /* File.swift */,
+				78A727FD202A50DF00E38EF0 /* RestAPIManager.swift */,
 			);
 			path = BookPlace;
 			sourceTree = "<group>";
@@ -320,11 +317,10 @@
 				78DC104E20266B6300187398 /* BookPlaceTBC.swift in Sources */,
 				78E607E82026195D00E2A6B8 /* BookPlace.xcdatamodeld in Sources */,
 				783D192E20270CE300C24E60 /* BasketDetailViewController.swift in Sources */,
-				783D192A20270C5800C24E60 /* DetailsViewController.swift in Sources */,
 				78E607F92026658600E2A6B8 /* AccountViewController.swift in Sources */,
 				783D192C20270CB400C24E60 /* BasketViewController.swift in Sources */,
 				783D193420270DEA00C24E60 /* CoreDataManager.swift in Sources */,
-				78A727FE202A50DF00E38EF0 /* File.swift in Sources */,
+				78A727FE202A50DF00E38EF0 /* RestAPIManager.swift in Sources */,
 				78E607E02026195C00E2A6B8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
