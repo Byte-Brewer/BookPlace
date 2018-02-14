@@ -8,5 +8,7 @@ target 'BookPlace' do
   # Pods for BookPlace
   pod 'GoogleSignIn'
   pod 'Kingfisher', '~> 4.6'
+  pod 'Alamofire', '~> 4.6'
+  pod 'SwiftyJSON', '~> 4.0'
 
 end

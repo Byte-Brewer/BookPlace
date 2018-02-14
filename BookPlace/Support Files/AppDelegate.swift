@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import GoogleSignIn
+import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,11 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         GIDSignIn.sharedInstance().clientID = "180801512804-iafjhfq4255ru42227fcfb6acd8a20a2.apps.googleusercontent.com"
         
+        guard (NetworkReachabilityManager()?.isReachable)! else {
+            let loginVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "loginVC") as? LoginViewController
+            self.window?.rootViewController = loginVC
+            return true
+        }
+        
         if GIDSignIn.sharedInstance().hasAuthInKeychain() {
            let bookPlaceVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "bookPlaceSB") as? BookPlaceTBC
             self.window?.rootViewController = bookPlaceVC
         }
-        
         return true
     }
 
