@@ -40,7 +40,7 @@ class BasketDetailViewController: UIViewController {
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Delete", style: .done, target: self, action: #selector(removeFromCard))
             self.navigationItem.rightBarButtonItem?.tintColor = UIColor.red
         } else {
-            authorLabel.text = bookFromItem?.volumeInfo.authors?.first ?? "Without author"
+            authorLabel.text = bookFromItem?.volumeInfo.authors?.joined(separator: ", ") ?? "Without author"
             titleLabel.text = bookFromItem?.volumeInfo.title ?? "Unknown"
             descriptionLAbel.text = bookFromItem?.volumeInfo.description ?? "( ͡° ͜ʖ ͡°)﻿"
             if let imageData = bookFromItem?.volumeInfo.imageLinks?.thumbnail {
@@ -78,7 +78,7 @@ class BasketDetailViewController: UIViewController {
         let entity = NSEntityDescription.entity(forEntityName: "Cart", in: context)
         let newBook = NSManagedObject(entity: entity!, insertInto: context)
         if bookFromItem != nil {
-            newBook.setValue(bookFromItem?.volumeInfo.authors?.first ?? "Unknown Author", forKey: "author")
+            newBook.setValue(bookFromItem?.volumeInfo.authors?.joined(separator: ", ") ?? "Unknown Author", forKey: "author")
             newBook.setValue(bookFromItem?.volumeInfo.title ?? "Wihtout Title", forKeyPath: "title")
             newBook.setValue(bookFromItem?.volumeInfo.description ?? ":)", forKeyPath: "detail")
             newBook.setValue(bookFromItem?.id, forKey: "id")

@@ -25,7 +25,7 @@ class SearchCell: UITableViewCell {
     
     func setup(volumInfo info: VolumInfo) {
         self.titleLabel.text = info.title
-        self.authorLabel.text = info.authors?.first ?? "Without author"
+        self.authorLabel.text = info.authors?.joined(separator: ", ") ?? "Without author"
         if let urlView = info.imageLinks?.smallThumbnail {
             self.imageBook.kf.setImage(with: URL(string: urlView))
         } else {
