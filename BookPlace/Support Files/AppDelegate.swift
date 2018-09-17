@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import GoogleSignIn
 import Alamofire
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         GIDSignIn.sharedInstance().clientID = "180801512804-iafjhfq4255ru42227fcfb6acd8a20a2.apps.googleusercontent.com"
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         guard (NetworkReachabilityManager()?.isReachable)! else {
             let loginVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "loginVC") as? LoginViewController
@@ -30,6 +32,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = bookPlaceVC
         }
         return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

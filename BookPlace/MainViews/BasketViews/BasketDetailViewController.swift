@@ -66,7 +66,7 @@ class BasketDetailViewController: UIViewController {
                 self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Delete", style: .done, target: self, action: #selector(removeFromCard))
                 self.navigationItem.rightBarButtonItem?.tintColor = UIColor.red
             } else {
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add to Cart", style: .plain, target: self, action: #selector(addToCart))
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add to card", style: .plain, target: self, action: #selector(addToCart))
             }
         } catch {
             print("Failed")

@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleSignIn
+import FBSDKLoginKit
 import CoreData
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
@@ -21,21 +22,25 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
     }
-    
+   
     @IBAction func faceBookLoginButton(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Ups", message: "This action is temporarily unavailable", preferredStyle: UIAlertControllerStyle.alert)
-        let actionOK = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
-        let actionCamon = UIAlertAction(title: "May be Google?", style: UIAlertActionStyle.default, handler: { _ in self.googleLoginButton(UIButton()) })
-        alert.addAction(actionOK)
-        alert.addAction(actionCamon)
-        self.present(alert, animated: true, completion: nil)
+        FBSDKLoginManager().logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result, error) in
+            guard error == nil else { return }
+            guard result != nil else { return }
+            guard result?.token.tokenString != nil else {
+                print("Error: ", error.debugDescription)
+                return
+            }
+            let bookPlaceVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "bookPlaceSB") as! BookPlaceTBC
+            self.present(bookPlaceVC, animated: true, completion: nil)
+        }
     }
     
     @IBAction func googleLoginButton(_ sender: UIButton) {
         oAuthGoogle.sendActions(for: .touchUpInside)
     }
     
-    func login() {
+   private func login() {
         guard Connectivity.isConnectedToInternet() else {
             let alert = UIAlertController(title: "Error", message: "Inretnet is avalible", preferredStyle: UIAlertControllerStyle.alert)
             let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
@@ -51,6 +56,15 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
         } else {
             print("No")
         }
+    }
+    
+    fileprivate func upsAlert() {
+        let alert = UIAlertController(title: "Ups", message: "This action is temporarily unavailable", preferredStyle: UIAlertControllerStyle.alert)
+        let actionOK = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        let actionCamon = UIAlertAction(title: "May be Google?", style: UIAlertActionStyle.default, handler: { _ in self.googleLoginButton(UIButton()) })
+        alert.addAction(actionOK)
+        alert.addAction(actionCamon)
+        self.present(alert, animated: true, completion: nil)
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
